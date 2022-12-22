@@ -22,14 +22,23 @@
 
 function atenderClientes(clientes) {
   // Tu código aquí:
-
   // obtener el tamaño del objecto
-  if (Object.keys(clientes).length == 0) {
+
+  let obj = Object.keys(clientes);
+  if (obj.length == 0) {
     return clientes;
   }
-  delete clientes[Object.keys(clientes).length];
+  delete clientes[obj.length];
+
   return atenderClientes(clientes);
 }
+const lista1 = {
+  1: "Franco",
+  2: "María",
+  3: "Alejo",
+};
+let prueba = atenderClientes(lista1);
+console.log(prueba);
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {

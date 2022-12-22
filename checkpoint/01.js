@@ -33,16 +33,23 @@ const Queue = require("../DS").Queue;
 // TIP: Chequear el archivo DS.js para ver la función constructora Queue, y ver sus métodos disponibles.
 
 function guardarCamisetas(ropaQueue) {
+  // colas
   // Tu código aquí:
-  let camisas = {}; // guardala en un objeto que sirve como contenedor
+  let camisetasGuardadas = {};
   let size = ropaQueue.size();
-  for (let index = 0; index < size; index++) {
-    let one = ropaQueue.dequeue();
-    camisas[one] = one;
-  }
 
-  return camisas;
+  for (let i = 0; i < size; i++) {
+    // console.log(ropaQueue.array[i]);
+    camisetasGuardadas[ropaQueue.array[i]] = ropaQueue.array[i];
+  }
+  return camisetasGuardadas;
 }
+const newQueue = new Queue();
+newQueue.enqueue("Camiseta Blanca");
+newQueue.enqueue("Camiseta Negra");
+newQueue.enqueue("Camiseta Amarilla");
+newQueue.enqueue("Camiseta Roja");
+guardarCamisetas(newQueue);
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {

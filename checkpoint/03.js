@@ -24,23 +24,36 @@
 
 function chequearDisponibilidad(ropas) {
   // Tu código aquí:
-  return (prendasDisponibles = function (stock) {
-    if (ropas.length == 0) {
-      return "No se encontraron las prendas solicitadas";
-    }
-    let encontradas = [];
+  return function (stock) {
+    let disponible = [];
     for (let i = 0; i <= ropas.length; i++) {
-      if (ropas.includes(stock[i])) encontradas.push(stock[i]);
+      if (ropas.includes(stock[i])) {
+        disponible.push(stock[i]);
+        // console.log("hola", disponible);
+      }
     }
-    if (!encontradas.length) {
+    if (!disponible.length) {
       return "No se encontraron las prendas solicitadas";
     }
-    if (encontradas.length == ropas.length) {
+    if (disponible.length == ropas.length) {
       return "Todas las prendas fueron encontradas";
     }
-    return `${encontradas.length} de las ${ropas.length} prendas solicitadas se encuentran en el stock`;
-  });
+    return `${disponible.length} de las ${ropas.length} prendas solicitadas se encuentran en el stock`;
+    // console.log(ropas);
+    // console.log(stock);
+  };
 }
+let arr = ["Camiseta Verde", "Pantalón Rojo", "Gorra Azul"];
+const arr1 = [
+  "Pantalón Amarillo",
+  "Camiseta Negra",
+  "Gorra Naranja",
+  "Camiseta Verde",
+];
+const ropa2 = ["Camiseta Verde", "Pantalón Rojo"];
+const stock2 = ["Camiseta Verde", "Pantalón Rojo"];
+let prueba = chequearDisponibilidad(ropa2);
+console.log(prueba(stock2));
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {

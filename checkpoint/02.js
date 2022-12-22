@@ -28,26 +28,33 @@ const Stack = require("../DS").Stack;
 
 function apilarPantalones(array, talla) {
   // Tu código aquí:
-  let stack1 = new Stack();
-  let stack2 = new Stack();
-
-  if (array.length > 0) {
-    for (let i = 0; i < array.length; i++) {
-      if (array[i] == talla) {
-        stack1.push(array[i]);
-      } else {
-        stack2.push(array[i]);
-      }
-    }
+  let pantalonesEncontrados = new Stack();
+  let pantalonesRestantes = new Stack();
+  let solicitado = {};
+  // let tamano = array.size();
+  // console.log(array);
+  if (array.length == 0) {
+    return false;
   }
 
-  let stack = {
-    pantalonesEncontrados: stack1,
-    pantalonesRestantes: stack2,
-  };
-
-  return array.length > 0 ? stack : false;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === talla) {
+      pantalonesEncontrados.push(array[i]);
+      // console.log("hola", pantalonesEncontrados);
+    } else {
+      pantalonesRestantes.push(array[i]);
+      // console.log("bien o que", pantalonesRestantes);
+    }
+  }
+  solicitado.pantalonesEncontrados = pantalonesEncontrados;
+  solicitado.pantalonesRestantes = pantalonesRestantes;
+  return solicitado;
 }
+let newArray = [37, 38, 38, 39, 41, 36, 41, 41, 37, 42];
+let newArray1 = [];
+const stack = new Stack();
+
+apilarPantalones(newArray, 38);
 
 // ⚠️ NO MODIFICAR NADA POR DEBAJO DE ESTA LÍNEA ⚠️
 module.exports = {
